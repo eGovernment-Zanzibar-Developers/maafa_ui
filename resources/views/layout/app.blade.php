@@ -4,12 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ICT PROFESSION</title>
+        <title>eKibali</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+         <!-- DataTables -->
+        <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
         <!-- Tempusdominus Bbootstrap 4 -->
@@ -36,11 +39,9 @@
               <!-- Left navbar links -->
               
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
+                
                 <li class="nav-item d-none d-sm-inline-block">
-                  <a href="index3.html" class="nav-link">ICT PROFESSION MANAGEMENT SYSTEM</a>
+                  <a href="index3.html" class="nav-link">MFUMO WA KIBALI CHA SAFARI</a>
                 </li>
               </ul>
           
@@ -140,11 +141,14 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar elevation-4 sidebar-light-primary">
               <!-- Brand Logo -->
-              <a href="index3.html" class="brand-link">
-                <img src="img/smz.png" alt="SMZ Logo" class=" img-circle elevation-3"
-                     style="opacity: .8;width:80px">
+              <div class="text-center">
                 
-              </a>
+                <a href="#" class="brand-link">
+                  <img src="img/smz.png" alt="SMZ Logo" class=" "
+                       style="opacity: .8;width:90px">
+                  
+                </a>
+              </div>
           
               <!-- Sidebar -->
               <div class="sidebar">
@@ -155,34 +159,14 @@
                   <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-legacy nav-flat" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
+                    <li class="nav-item">
                       <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                           Dashboard
-                          <i class="right fas fa-angle-left"></i>
                         </p>
                       </a>
-                      <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                          <a href="/dashboard" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v1</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="./index2.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v2</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="./index3.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v3</p>
-                          </a>
-                        </li>
-                      </ul>
+                      
                     </li>
                     <li class="nav-item">
                       <a href="pages/widgets.html" class="nav-link">
@@ -372,23 +356,23 @@
                     </li>
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
-                          Tables
+                          Configuration
                           <i class="fas fa-angle-left right"></i>
                         </p>
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="pages/tables/simple.html" class="nav-link">
+                          <a href="/ministry" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Simple Tables</p>
+                            <p>Wizara</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="pages/tables/data.html" class="nav-link">
+                          <a href="" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>DataTables</p>
+                            <p>Idara</p>
                           </a>
                         </li>
                         <li class="nav-item">
@@ -441,8 +425,8 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-              <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-              All rights reserved.
+              <strong>Copyright &copy; <?php echo date('Y')?> <a href="http://egoz.go.tz">Wakala wa Serikali Mtandao</a>.</strong>
+              Haki zote zimehifadhiwa.
               <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.0.5
               </div>
@@ -487,6 +471,29 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('js/demo.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+
+         <!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
         <script>
             $(document).on('change','.ministry', function(){
                 var mini_id = $(this).val();
