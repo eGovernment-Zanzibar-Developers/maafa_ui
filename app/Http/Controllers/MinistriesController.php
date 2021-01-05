@@ -8,25 +8,35 @@ use App\Models\Ministry;
 
 class MinistriesController extends Controller
 {
+ 
     //VIEW ALL MINISTRIES
-    public function getMinistries(){
-        $ministries = Http::get('http://localhost:57893/api/Ministry')->json();
+    public function getInstitutes(){
         
-        return view('ministry.ministry', ['ministries'=>$ministries]);
+        $ministries = Http::get($this->serverUrl().'Ministry')->json();
+        $departmentTypes = Http::get($this->serverUrl().'DepartmentType')->json();
+        $departments = Http::get($this->serverUrl().'Department')->json();
+        
+        return view('ministry.institute-config', 
+        [
+            'ministries'=>$ministries,
+            'departmentTypes'=>$departmentTypes,
+            'departments'=>$departments
+        ]);
     }
 
 
     public function createMinistry(Request $request){
 
+
+        $min = new Ministry();
+        $min->name = $request->ministry;
+        
         //VALIDATION
         $request->validate([
             'ministry' => 'required'
         ]);
 
-        $min = new Ministry();
-        $min->name = $request->ministry;
-
-       Http::post('http://localhost:57893/api/Ministry',
+       Http::post($this->serverUrl().'Ministry',
             [
             'name' => $min->name
             ])->json();

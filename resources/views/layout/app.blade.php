@@ -160,7 +160,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                      <a href="#" class="nav-link active">
+                      <a href="#" class="nav-link {{request()->is('') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                           Dashboard
@@ -169,11 +169,11 @@
                       
                     </li>
                     <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                      <a href="/users-list" class="nav-link {{request()->is('users-list') ? 'active' : ''}}">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                          Widgets
-                          <span class="right badge badge-danger">New</span>
+                         Orodha ya Watumiaji
+                          
                         </p>
                       </a>
                     </li>
@@ -354,34 +354,15 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                      <a href="#" class="nav-link">
+                    <li class="nav-item ">
+                      <a href="institute-config" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
-                          Configuration
-                          <i class="fas fa-angle-left right"></i>
+                          Taasisi
+                          
                         </p>
                       </a>
-                      <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                          <a href="/ministry" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Wizara</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Idara</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/tables/jsgrid.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>jsGrid</p>
-                          </a>
-                        </li>
-                      </ul>
+                     
                     </li>
                    
                    

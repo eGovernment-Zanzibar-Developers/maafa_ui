@@ -10,4 +10,10 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    private $server ='http://localhost:57893/api/';
+
+    protected function serverUrl(){
+        return $this->server;
+    }
 }

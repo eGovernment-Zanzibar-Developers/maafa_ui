@@ -131,8 +131,9 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'ministry' => [
+            'required' => 'Tafadhali andika jina la Wizara',
+            
         ],
     ],
 

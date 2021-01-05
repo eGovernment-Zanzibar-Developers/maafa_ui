@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MinistriesController;
+use App\Http\Controllers\{UsersController,MinistriesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,9 @@ use App\Http\Controllers\MinistriesController;
 */
 
 
-Route::get('/ministry', [MinistriesController::class, 'getMinistries']);
-Route::post('/ministry', [MinistriesController::class, 'createMinistry'])->name('ministry');
+//Users
+Route::get('/users-list',[UsersController::class, 'getUsers']);
+
+//Ministry
+Route::get('/institute-config', [MinistriesController::class, 'getInstitutes']);
+Route::post('/institute-config', [MinistriesController::class, 'createMinistry']);
