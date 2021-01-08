@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{UsersController,MinistriesController};
+use App\Http\Controllers\{UsersController,MinistryController};
+use App\Http\Controllers\{DepartmentController,DepartmentTypeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,17 @@ use App\Http\Controllers\{UsersController,MinistriesController};
 
 //Users
 Route::get('/users-list',[UsersController::class, 'getUsers']);
+Route::get('/users-list{id}',[UsersController::class, 'getDeptById']);
 
-//Ministry
-Route::get('/institute-config', [MinistriesController::class, 'getInstitutes']);
-Route::post('/institute-config', [MinistriesController::class, 'createMinistry']);
+
+//Route for Ministry
+Route::get('/ministry', [MinistryController::class, 'getMinistries']);
+Route::post('/ministry', [MinistryController::class, 'createMinistry']);
+
+//Route for Department Type
+Route::get('/department-type', [DepartmentTypeController::class, 'getDepartmentTypes']);
+Route::post('/department-type', [DepartmentTypeController::class, 'createDepartmentType']);
+
+//Route for Department Type
+Route::get('/department', [DepartmentController::class, 'getDepartments']);
+Route::post('/department', [DepartmentController::class, 'createDepartment']);

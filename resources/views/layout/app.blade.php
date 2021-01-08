@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
+        {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}"> --}}
         <!-- Tempusdominus Bbootstrap 4 -->
         <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
         <!-- iCheck -->
@@ -27,6 +27,10 @@
         <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
         <!-- Daterange picker -->
         <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+        {{-- Sweetalert2 --}}
+        <link rel="stylesheet" href="{{asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+          <!-- Toastr -->
+        <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
         <!-- summernote -->
         <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -41,71 +45,14 @@
               <ul class="navbar-nav">
                 
                 <li class="nav-item d-none d-sm-inline-block">
-                  <a href="index3.html" class="nav-link">MFUMO WA KIBALI CHA SAFARI</a>
+                  <h5 class="text-muted pl-3">MFUMO WA KIBALI CHA SAFARI</h5>
                 </li>
               </ul>
           
           
               <!-- Right navbar links -->
               <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-                      <!-- Message Start -->
-                      <div class="media">
-                        <img src="img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                        <div class="media-body">
-                          <h3 class="dropdown-item-title">
-                            Brad Diesel
-                            <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                          </h3>
-                          <p class="text-sm">Call me whenever you can...</p>
-                          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                      </div>
-                      <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                      <!-- Message Start -->
-                      <div class="media">
-                        <img src="img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                          <h3 class="dropdown-item-title">
-                            John Pierce
-                            <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                          </h3>
-                          <p class="text-sm">I got your message bro</p>
-                          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                      </div>
-                      <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                      <!-- Message Start -->
-                      <div class="media">
-                        <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                          <h3 class="dropdown-item-title">
-                            Nora Silvester
-                            <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                          </h3>
-                          <p class="text-sm">The subject goes here</p>
-                          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                      </div>
-                      <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                  </div>
-                </li>
+               
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                   <a class="nav-link" data-toggle="dropdown" href="#">
@@ -133,7 +80,22 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                   </div>
                 </li>
-                
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" title="Profile" href="#">System Administrator</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="userNavigation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="far fa-user-circle fa-2x fa-fw"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userNavigation">
+                          <a class="dropdown-item" href="#"><i class="fa fa-user-edit fa-fw text-muted"></i> Profile</a>
+                          <a class="dropdown-item" href="#"><i class="fa fa-user-lock fa-fw text-muted"></i> Change Password</a>
+                          <div class="dropdown-divider"></div>
+                          <button type="submit" class="dropdown-item btn btn-link navbar-btn nav-item"><i class="fa fa-sign-out-alt fa-fw text-muted"></i> Logout</button>
+                      </div>
+                  </li>
+          </ul>
               </ul>
             </nav>
             <!-- /.navbar -->
@@ -172,65 +134,12 @@
                       <a href="/users-list" class="nav-link {{request()->is('users-list') ? 'active' : ''}}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                         Orodha ya Watumiaji
+                         Watumiaji
                           
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                          Layout Options
-                          <i class="fas fa-angle-left right"></i>
-                          <span class="badge badge-info right">6</span>
-                        </p>
-                      </a>
-                      <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                          <a href="pages/layout/top-nav.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Top Navigation</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Top Navigation + Sidebar</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/boxed.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Boxed</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Fixed Sidebar</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Fixed Navbar</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/fixed-footer.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Fixed Footer</p>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Collapsed Sidebar</p>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
+                   
                     <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -355,11 +264,10 @@
                       </ul>
                     </li>
                     <li class="nav-item ">
-                      <a href="institute-config" class="nav-link">
+                      <a href="/ministry" class="nav-link {{ request()->is('ministry','department','department-type') ? 'active' : ''}}  ">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                           Taasisi
-                          
                         </p>
                       </a>
                      
@@ -438,7 +346,7 @@
         <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
         <!-- daterangepicker -->
         <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-        <script src="plugins/daterangepicker/daterangepicker.js') }}"></script>
+        {{-- <script src="plugins/daterangepicker/daterangepicker.js') }}"></script> --}}
         <!-- Tempusdominus Bootstrap 4 -->
         <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
         <!-- Summernote -->
@@ -448,40 +356,69 @@
         <!-- AdminLTE App -->
         <script src="{{ asset('js/adminlte.js') }}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{{ asset('js/pages/dashboard.js') }}"></script>
+        {{-- <script src="{{ asset('js/pages/dashboard.js') }}"></script> --}}
         <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('js/demo.js') }}"></script>
-        <script src="{{ asset('js/script.js') }}"></script>
-
-         <!-- DataTables -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script>
-    $(function () {
-      $("#example1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-      });
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
-  </script>
+        {{-- <script src="{{ asset('js/script.js') }}"></script> --}}
+        <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+        <!-- Toastr -->
+        <script src="plugins/toastr/toastr.min.js"></script>
+        @if (Session::has('errors'))
         <script>
-            $(document).on('change','.ministry', function(){
+          $(document).ready(function(){
+            $('#institute').modal('show')
+          })
+        </script>
+        @endif
+
+        <script type="text/javascript">
+            $(function() {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            });
+                  $('.swalDefaultSuccess').click(function() {
+                    Toast.fire({
+                    icon: 'success',
+                    title: 'Lorem ipsum dodlor sit amet, consetetur sadipscing elitr.'
+                      })
+                    });
+          </script>
+
+                  <!-- DataTables -->
+          <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+          <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+          <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+          <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+          <script>
+            $(function () {
+              $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+              });
+              $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+              });
+            });
+
+          </script>
+
+  <script>
+            $(document).on('change','#inputMinistry', function(){
                 var mini_id = $(this).val();
                 var opt =" ";
                 $.ajax({
                     type: 'GET',
-                    url: '{!!URL::to('GetDepartment')!!}',
+                    url: '{!!URL::to('getDeptById')!!}',
                     data: {'id':mini_id},
                     success:function(data){
                         opt += '<option valu="0" selected disabled>..Select Department..</option>';
@@ -490,8 +427,8 @@
 
                             opt += '<option value="'+data[i].Id+'" >'+data[i].DepartmentName+'</option>';
                         }
-                        $('.department').html("");
-                        $('.department').append(opt);
+                        $('#department').html("");
+                        $('#department').append(opt);
                     }
 
                 });

@@ -1,27 +1,7 @@
-
-  
-          
-          <form action="" method="POST" id="ministry">
-              @csrf
-            <div class="row">
-
-              <div class="col-md-6">
-  
-                <div class="form-group">
-                    
-                    <input type="text" name="ministry" id="inputMinistry" class="form-control" placeholder="Jina la Wizara">
-                    @error('ministry')
-                        <span class="text-danger">{{ $message }}</span> 
-                    @enderror
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success" Id="submitForm"><i class="fa fa-save"></i> Save</button>
-                </div>
-              </div>
-            </div>
-          </form>
-
-      
-  
+<div class="col-md-12 mb-2">
+  <nav class="nav nav-tabs bg-light">
+    <a class="nav-link {{ request()->is('ministry') ? 'active' : ''}}" href="/ministry"><i class="fa fa-university"></i> Orodha ya Wizara</a>
+    <a class="nav-link {{ request()->is('department-type') ? 'active' : ''}}" href="/department-type"><i class="fa fa-hospital"></i> Orodha ya aina za Idara</a>
+    <a class="nav-link {{ request()->is('department') ? 'active' : ''}}" href="/department"><i class="fa fa-building"></i> Orodha ya Idara</a>
+  </nav>
+</div>

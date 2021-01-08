@@ -135,6 +135,22 @@ return [
             'required' => 'Tafadhali andika jina la Wizara',
             
         ],
+        'ministryId' => [
+            'required' => 'Tafadhali Chagua jina la Wizara',
+            
+        ],
+        'departmentId' => [
+            'required' => 'Tafadhali Chagua aina ya Idara',
+            
+        ],
+        'department' => [
+            'required' => 'Tafadhali Chagua Idara',
+            
+        ],
+        'departmentType' => [
+            'required' => 'Tafadhali Chagua aina ya Idara',
+            
+        ],
     ],
 
     /*
