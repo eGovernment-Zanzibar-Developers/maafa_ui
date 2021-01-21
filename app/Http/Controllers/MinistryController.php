@@ -32,6 +32,7 @@ class MinistryController extends Controller
         $request->validate([
             'ministry' => 'required'
         ]);
+        
         $min = new Ministry();
         $min->name = $request->ministry;
         

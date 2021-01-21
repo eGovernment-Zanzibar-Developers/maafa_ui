@@ -7,10 +7,10 @@
         <x-ministry-modal/>
       <div class="row mb-2 text-right">
         <div class="col-md-12">
-           <button class="btn btn-info" data-toggle="modal" data-target="#institute"><i class="fa fa-plus-circle"></i> Ongeza aina ya Idara</button>
+           <button class="btn btn-info btn-flat" data-toggle="modal" data-target="#institute"><i class="fa fa-plus-circle"></i> Ongeza aina ya Idara</button>
         </div>
     </div>
-    <table id="example1" class="table table-bordered table-striped table-sm">
+    <table id="dataTable" class="table table-bordered table-striped table-sm">
         <thead>
             <tr>
                 <th>Aina ya Idara</th>
@@ -40,10 +40,10 @@
   <div class="modal fade" id="institute" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="instituteTypeLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-info">
           <h5 class="modal-title" id="instituteTypeLabel">Ongeza aina ya Idara</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true"><i class="fa fa-times-circle fa-danger"></i></span>
           </button>
         </div>
         <form id="addInstitute" action="" method="POST">
@@ -66,8 +66,8 @@
               
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i> Save</button>
+              <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal">Funga</button>
+              <button type="submit" class="btn btn-info btn-flat" ><i class="fa fa-save"></i> Hifadhi</button>
               
             </div>
           </form>

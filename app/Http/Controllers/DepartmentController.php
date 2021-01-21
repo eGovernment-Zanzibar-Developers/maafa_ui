@@ -43,7 +43,7 @@ class DepartmentController extends Controller
             'ministryId' => $dept->ministryId,
             'departmentTypeId' => $dept->departmentTypeId
         ])->json();
-
+                
         return back()->with('success','Saved');
     }
 }

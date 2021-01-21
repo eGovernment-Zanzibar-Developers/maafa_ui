@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{UsersController,MinistryController};
+use App\Http\Controllers\{PagesController,UsersController,MinistryController};
 use App\Http\Controllers\{DepartmentController,DepartmentTypeController};
 
 /*
@@ -15,10 +15,15 @@ use App\Http\Controllers\{DepartmentController,DepartmentTypeController};
 |
 */
 
+//Pages Route
+Route::get('/dashboard', [PagesController::class, 'dashboard']);
 
 //Users
 Route::get('/users-list',[UsersController::class, 'getUsers']);
-Route::get('/users-list{id}',[UsersController::class, 'getDeptById']);
+Route::get('/getDeptById',[UsersController::class, 'getDeptById']);
+Route::get('/getUserById',[UsersController::class, 'getUserById']);
+Route::post('/users-list',[UsersController::class, 'createUser']);
+Route::get('/apply-permit', [UsersController::class, 'applyPermit']);
 
 
 //Route for Ministry
@@ -29,6 +34,6 @@ Route::post('/ministry', [MinistryController::class, 'createMinistry']);
 Route::get('/department-type', [DepartmentTypeController::class, 'getDepartmentTypes']);
 Route::post('/department-type', [DepartmentTypeController::class, 'createDepartmentType']);
 
-//Route for Department Type
+//Route for Department
 Route::get('/department', [DepartmentController::class, 'getDepartments']);
 Route::post('/department', [DepartmentController::class, 'createDepartment']);

@@ -1,11 +1,4 @@
-* {
-    margin: 0;
-    padding: 0
-}
 
-html {
-    height: 100%
-}
 
 p {
     color: grey
@@ -13,7 +6,7 @@ p {
 
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #117a8b;
     font-weight: normal
 }
 
@@ -54,7 +47,7 @@ p {
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #117a8b;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -67,7 +60,7 @@ p {
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    background-color: #311B92
+    background-color:#117a8b
 }
 
 #msform .action-button-previous {
@@ -96,19 +89,19 @@ p {
 
 .fs-title {
     font-size: 25px;
-    color: #673AB7;
+    color: #117a8b;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #117a8b;
     font-weight: normal
 }
 
 .steps {
-    font-size: 25px;
+    font-size: 20px;
     color: gray;
     margin-bottom: 10px;
     font-weight: normal;
@@ -127,13 +120,13 @@ p {
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #117a8b
 }
 
 #progressbar li {
     list-style-type: none;
     font-size: 15px;
-    width: 25%;
+    width: 23%;
     float: left;
     position: relative;
     font-weight: 400
@@ -141,17 +134,17 @@ p {
 
 #progressbar #account:before {
     font-family: FontAwesome;
-    content: "\f13e"
+    content: "\f007"
 }
 
 #progressbar #personal:before {
     font-family: FontAwesome;
-    content: "\f007"
+    content: "\f072"
 }
 
 #progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f030"
+    content: "\f0d6"
 }
 
 #progressbar #confirm:before {
@@ -185,7 +178,7 @@ p {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #117a8b
 }
 
 .progress {
@@ -193,7 +186,7 @@ p {
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #117a8b
 }
 
 .fit-image {
