@@ -1,38 +1,36 @@
 @extends('layout.app')
-@section('title','Watumiaji')
+@section('title','Users List')
 
 @section('content')
-<div class="card card-info card-outline">
+<div class="card card-dark card-outline">
     <div class="card-body ">
         <div class="row mb-2 text-right">
             <div class="col-md-12">
-                <button class="btn btn-info btn-flat" data-toggle="modal" data-target="#user" aria-expanded="false" aria-controls="user">
-                    <i class="fa fa-user-plus"></i> Ongeza Mtumiaji
+                <button class="btn btn-primary btn-flat" data-toggle="modal" data-target="#user" aria-expanded="false" aria-controls="user">
+                    <i class="fa fa-user-plus"></i> Add User
                 </button>
             </div>
         </div>
       <table id="dataTable" class="table table-bordered table-striped table-sm">
         <thead>
         <tr>
-          <th>Nambari ya Uajiri </th>
-          <th>Jina</th>
-          <th>Barua pepe</th>
-          <th>Idara</th>
-          <th>Hali ya Mtumiaji</th>
+          <th>Full Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>User Type</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <td>{{$user['employeeNumber']}}</td>
-                <td>{{$user['firstName']}} {{$user['lastName']}} </td>
+              <td>{{$user['firstName']}} {{$user['lastName']}} </td>
+              <td>{{$user['phone']}}</td>
                 <td>{{$user['email']}}</td>
-                <td>{{$user['departmentName']}}</td>
+                <td>{{$user['userTypeName']}}</td>
                 <td>
-                  @if($user['userStatusName'] == 'Pending')
-                    <span class="badge badge-warning">Pending</span>
-                  @elseif($user['userStatusName'] == 'Active')
+                  @if($user['userStatusName'] == 'ACTIVE')
                     <span class="badge badge-success">Active</span>
                   @else
                     <span class="badge badge-danger">InActive</span>
@@ -262,7 +260,7 @@
   </div>
   <!-- /.card -->
  <!-- createModal -->
- <div class="modal fade" id="user"  data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="userLabel" aria-hidden="true">
+ {{-- <div class="modal fade" id="user"  data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="userLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg ">
     <div class="modal-content ">
       <div class="modal-header bg-info">
@@ -470,7 +468,7 @@
         </form>
     </div>
   </div>
-</div>
+</div> --}}
 
 
 

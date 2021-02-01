@@ -1,0 +1,27 @@
+body {
+  font-family:Segoe UI;
+  margin:0;
+  padding:0;
+  /*max-width:inherit;*/
+  /*background-image:url(../../assets/img/bg.png);*/
+  /*background-repeat:repeat-x;*/
+  background-color:#f2f2f2;
+}
+
+.form-container {
+  border:solid 1px #ccc;
+  border-radius:20px;
+  background:#fff;
+  background-image:url(../../assets/img/bg.png);
+  background-repeat:repeat-x;
+}
+
+.text-monospace.text-center.text-muted {
+  font-family:trebuchet Ms;
+  font-size:12px;
+}
+
+.text-monospace.text-uppercase.text-center.text-success {
+  font-family:trebuchet ms;
+}
+

@@ -13,16 +13,12 @@ class UsersController extends Controller
     public function getUsers(){
         
         $users = Http::get($this->serverUrl().'User')->json();
-        $userTypes = Http::get($this->serverUrl().'UserType')->json();
-        $ministries = Http::get($this->serverUrl().'Ministry')->json();
-        $departments = Http::get($this->serverUrl().'Department')->json();
+     
 
         return view('users.users-list',
         [
             'users'=>$users,
-            'userTypes'=>$userTypes,
-            'ministries'=>$ministries,
-            'departments'=>$departments
+            
         ]);
     }
 

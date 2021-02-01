@@ -23,6 +23,6 @@ class ministryModal extends Component
      */
     public function render()
     {
-        return view('components.ministry-modal');
+        return view('components.nav-menu');
     }
 }

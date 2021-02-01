@@ -12,9 +12,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
    //private $server ='http://localhost:57893/api/';
-    private $server ='http://41.73.213.144:8888/api/';
+    private $server ='http://41.73.213.144:8650/api/';
 
     protected function serverUrl(){
-        return $this->server;
+            return $this->server;
     }
 }

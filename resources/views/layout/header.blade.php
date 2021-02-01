@@ -5,7 +5,7 @@
     <ul class="navbar-nav">
                   
         <li class="nav-item d-none d-sm-inline-block">
-            <h5 class="text-muted pl-3">MFUMO WA KIBALI CHA SAFARI</h5>
+            <h5 class="text-muted pl-3">MFUMO WA MAAFA</h5>
         </li>
     </ul>
             

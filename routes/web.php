@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{PagesController,UsersController,MinistryController};
-use App\Http\Controllers\{DepartmentController,DepartmentTypeController};
+use App\Http\Controllers\{PagesController,HazardConfigController};
+use App\Http\Controllers\{HazardController,AffectedController,UsersController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,23 +17,26 @@ use App\Http\Controllers\{DepartmentController,DepartmentTypeController};
 
 //Pages Route
 Route::get('/dashboard', [PagesController::class, 'dashboard']);
+Route::get('/', [PagesController::class, 'login']);
 
-//Users
-Route::get('/users-list',[UsersController::class, 'getUsers']);
-Route::get('/getDeptById',[UsersController::class, 'getDeptById']);
-Route::get('/getUserById',[UsersController::class, 'getUserById']);
-Route::post('/users-list',[UsersController::class, 'createUser']);
-Route::get('/apply-permit', [UsersController::class, 'applyPermit']);
+//Route for hazard config
+Route::get('/hazard-category', [HazardConfigController::class, 'getHazardCategories']);
+Route::post('/hazard-category', [HazardConfigController::class, 'addHazardCategories']);
+Route::get('/hazard-type', [HazardConfigController::class, 'getHazardTypes']);
+Route::get('/hazard-source', [HazardConfigController::class, 'getHazardSources']);
+Route::post('/hazard-source', [HazardConfigController::class, 'addHazardSource']);
 
 
-//Route for Ministry
-Route::get('/ministry', [MinistryController::class, 'getMinistries']);
-Route::post('/ministry', [MinistryController::class, 'createMinistry']);
 
-//Route for Department Type
-Route::get('/department-type', [DepartmentTypeController::class, 'getDepartmentTypes']);
-Route::post('/department-type', [DepartmentTypeController::class, 'createDepartmentType']);
+//Route for Hazard
+Route::get('/hazard-list', [HazardController::class, 'getHazards']);
+Route::get('/add-hazard', [HazardController::class, 'getResource']);
+Route::get('/getShehias', [HazardController::class, 'getShehias']);
+Route::post('/add-hazard', [HazardController::class, 'addHazard']);
+Route::get('/hazard-affected/{id}', [HazardController::class, 'getHazardById']);
 
-//Route for Department
-Route::get('/department', [DepartmentController::class, 'getDepartments']);
-Route::post('/department', [DepartmentController::class, 'createDepartment']);
+//Route for User
+Route::get('/users-list', [UsersController::class, 'getUsers']);
+
+//Route for Affected
+// Route::get('/hazard-affected/{id}', [AffectedController::class, 'countAffected']);

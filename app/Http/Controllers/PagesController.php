@@ -18,4 +18,8 @@ class PagesController extends Controller
         ]);
     }
 
+    public function login(){
+        return view('login');
+    }
+
 }

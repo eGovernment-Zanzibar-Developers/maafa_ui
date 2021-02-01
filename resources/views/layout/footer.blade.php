@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date('Y')?> <a href="http://egoz.go.tz">Wakala wa Serikali Mtandao</a>.</strong>
+    <strong>Copyright &copy; <?php echo date('Y')?> <a href="">Kamisheni ya Kukabiliana na Maaafa</a>.</strong>
     Haki zote zimehifadhiwa.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.5
@@ -57,6 +57,26 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
 
 <script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
     $(function () {
         //Initialize Select2 Elements
         $('.select2').select2()
@@ -70,11 +90,10 @@ $.widget.bridge('uibutton', $.ui.button)
 
 
     @if (Session::has('errors'))
-    <script>
     $(document).ready(function(){
     $('#institute,#user').modal('show')
     })
-    </script>
+   
     @endif
 
 
@@ -114,22 +133,22 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <script>
   //auto populate dropdown
-  $(document).on('change','#inputMinistry', function(){
-      var mini_id = $(this).val();
+  $(document).on('change','#inputDistrict', function(){
+      var district_id = $(this).val();
       var opt =" ";
       $.ajax({
           type: 'GET',
-          url: '{!!URL::to('getDeptById')!!}',
-          data: {'id':mini_id},
+          url: '{!!URL::to('getShehias')!!}',
+          data: {'id':district_id},
           success:function(data){
-              opt += '<option valu="0" selected disabled>..Chagua Idara..</option>';
+              opt += '<option valu="0" selected disabled>..select shehia..</option>';
               
               for(var i=0; i < data.length; i++){
 
-                  opt += '<option value="'+data[i].id+'" >'+data[i].departmentName+'</option>';
+                  opt += '<option value="'+data[i].id+'" >'+data[i].name+'</option>';
               }
-              $('#inputdepartment').html("");
-              $('#inputdepartment').append(opt);
+              $('#inputShehia').html("");
+              $('#inputShehia').append(opt);
           }
       });
   });

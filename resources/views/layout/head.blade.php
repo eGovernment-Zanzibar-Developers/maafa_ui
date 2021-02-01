@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name','MFUMO WA KIBALI CHA SAFARI') }}</title>
+        <title>@yield('title') | {{ config('app.name','eKibali') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,7 +38,8 @@
         <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
         <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
           <!-- Bootstrap4 Duallistbox -->
-  <link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+        <link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+      
     </head>
     <body class="sidebar-mini layout-fixed small-text control-sidebar-slide-open text-sm">
         <div class="wrapper">
