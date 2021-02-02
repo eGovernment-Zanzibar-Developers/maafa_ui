@@ -42,6 +42,40 @@ class HazardController extends Controller
         }
     }
 
+    public function getHazardUpdateById($id)
+    {
+        $decryptId = Crypt::decrypt($id);
+        try {
+
+    
+            $hazard = Http::get($this->serverUrl().'Hazard/'.$decryptId)->json();
+            $hazardTypes = Http::get($this->serverUrl().'HazardType')->json();
+            $hazardCategories = Http::get($this->serverUrl().'HazardCategory')->json();
+            $hazardSources = Http::get($this->serverUrl().'HazardSource')->json();
+            $reporterTypes = Http::get($this->serverUrl().'ReporterType')->json();
+            $districts = Http::get($this->serverUrl().'District')->json();
+    
+            return view('hazards.update-hazard',
+            [
+                'hazardTypes'=>$hazardTypes,
+                'hazardCategories'=>$hazardCategories,
+                'hazardSources'=>$hazardSources,
+                'reporterTypes'=>$reporterTypes,
+                'districts'=>$districts,
+                'hazard'=>$hazard
+
+            ]);
+    
+            // return view('hazards.update-hazard',
+            // [
+            //     'hazard'=>$hazard,
+                
+            // ]);
+        } catch (\Throwable $th) {
+            return '<h1>Mfumo haupatikani utarudi baada mda mchache</h1>';
+        }
+    }
+
     public function getResource()
     {
         try {
@@ -52,6 +86,29 @@ class HazardController extends Controller
             $districts = Http::get($this->serverUrl().'District')->json();
     
             return view('hazards.add-hazard',
+            [
+                'hazardTypes'=>$hazardTypes,
+                'hazardCategories'=>$hazardCategories,
+                'hazardSources'=>$hazardSources,
+                'reporterTypes'=>$reporterTypes,
+                'districts'=>$districts
+            ]);
+            
+        } catch (\Throwable $th) {
+            return;
+        }
+    }
+
+    public function getResourceUpdate()
+    {
+        try {
+            $hazardTypes = Http::get($this->serverUrl().'HazardType')->json();
+            $hazardCategories = Http::get($this->serverUrl().'HazardCategory')->json();
+            $hazardSources = Http::get($this->serverUrl().'HazardSource')->json();
+            $reporterTypes = Http::get($this->serverUrl().'ReporterType')->json();
+            $districts = Http::get($this->serverUrl().'District')->json();
+    
+            return view('hazards.update-hazard',
             [
                 'hazardTypes'=>$hazardTypes,
                 'hazardCategories'=>$hazardCategories,
@@ -123,6 +180,20 @@ class HazardController extends Controller
         } catch (\Throwable $th) {
            return;
         }
+
+    }
+
+    public function updateHazard(Request $req, $id)
+    {
+        try
+        {
+
+        } catch (\Throwable $th) {
+            return;
+
+        }
+
+
     }
 
 }

@@ -30,7 +30,7 @@
                                     <td>{{ $hazard['shehiaName'] }}</td>
                                     <td>{{ date('Y-m-d', strtotime($hazard['reportedDate'])) }}</td>
                                     <td>
-                                        <a href="/edit-hazard/{{ encrypt($hazard['id'])}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> | 
+                                        <a href="/update-hazard/{{ encrypt($hazard['id'])}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> | 
                                         <a href="/hazard-affected/{{ encrypt($hazard['id'])}}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
