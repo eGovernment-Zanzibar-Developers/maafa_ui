@@ -30,12 +30,16 @@ class HazardController extends Controller
             $hazard = Http::get($this->serverUrl().'Hazard/'.$decryptId)->json();
             $peoples = Http::get($this->serverUrl().'AffectedPeople/count/'.$decryptId)->json();
             $properties = Http::get($this->serverUrl().'AffectedProperty/count/'.$decryptId)->json();
+            $affPeoples = Http::get($this->serverUrl().'AffectedPeople/hazard/'.$decryptId)->json();
+            $affProperties = Http::get($this->serverUrl().'AffectedProperty/hazard/'.$decryptId)->json();
     
             return view('hazards.hazard-affected',
             [
                 'hazard'=>$hazard,
                 'peoples' => $peoples,
-                'properties' => $properties
+                'properties' => $properties,
+                'affPeoples' => $affPeoples,
+                'affProperties' => $affProperties
             ]);
         } catch (\Throwable $th) {
             return '<h1>Mfumo haupatikani utarudi baada mda mchache</h1>';
@@ -54,6 +58,7 @@ class HazardController extends Controller
             $hazardSources = Http::get($this->serverUrl().'HazardSource')->json();
             $reporterTypes = Http::get($this->serverUrl().'ReporterType')->json();
             $districts = Http::get($this->serverUrl().'District')->json();
+           
     
             return view('hazards.update-hazard',
             [
@@ -63,7 +68,6 @@ class HazardController extends Controller
                 'reporterTypes'=>$reporterTypes,
                 'districts'=>$districts,
                 'hazard'=>$hazard
-
             ]);
     
             // return view('hazards.update-hazard',
