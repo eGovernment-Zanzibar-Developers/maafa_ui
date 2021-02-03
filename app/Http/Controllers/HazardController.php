@@ -187,8 +187,51 @@ class HazardController extends Controller
     {
         try
         {
+            $hazard = new hazard();
 
-        } catch (\Throwable $th) {
+            $hazard->hazardTypeId = int($req)->Type;
+            $hazard->hazardCategoryId = int($req)->category;
+            $hazard->hazardSourceId = int($req)->source;
+            $hazard->hazardStatusId = 1;
+            $hazard->hazardTitle = $req->title;
+            $hazard->description = $req->description;
+            $hazard->reporterTypeId = int($req)->reporterType;
+            $hazard->shehiaId = int($req)->shehia;
+            $hazard->place = $req->place;
+            $hazard->reporter = $req->reporter;
+            $hazard->reportedDate = $req->reportedDate;
+            $hazard->startDate = $req->startDate;
+            $hazard->registeredBy = 1;
+
+
+            Http::post($thus->ServerUrl().'hazard',
+            [
+            'hazardTypeId' =>  $hazard->hazardTypeId,
+                'hazardCategoryId' =>  $hazard->hazardCategoryId,
+                'hazardSourceId' =>  $hazard->hazardSourceId,
+                'hazardStatusId' =>  $hazard->hazardStatusId,
+                'hazardTitle' =>  $hazard->hazardTitle,
+                'description' =>  $hazard->description,
+                'reporterTypeId' =>  $hazard->reporterTypeId,
+                'shehiaId' =>  $hazard->shehiaId,
+                'place' =>  $hazard->place,
+                'reporter' =>  $hazard->reporter,
+                'reportedDate' =>  $hazard->reportedDate,
+                'startDate' =>  $hazard->startDate,
+                'registeredBy' =>  $hazard->registeredBy,
+
+            
+            ]);
+            $notification = array(
+                'message' => 'Hazard updated successfully!',
+                'alert-type' => 'success'
+            );
+            
+            return redirect('update-hazard')->with($notification);
+
+
+        } catch (\Throwable $th) 
+        {
             return;
 
         }
