@@ -42,4 +42,4 @@ Route::get('/hazard-affected/{id}', [HazardController::class, 'getHazardById']);
 Route::get('/users-list', [UsersController::class, 'getUsers']);
 
 //Route for Affected
-// Route::get('/hazard-affected/{id}', [AffectedController::class, 'countAffected']);
+//Route::get('/hazard-affected', [AffectedController::class, 'getAffectedPeoples']);

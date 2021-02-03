@@ -92,7 +92,6 @@
                             <input type="text" value="{{$hazard['place']}}" name="place" class="form-control" id="inputPlace" placeholder="Place"/>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="row">
                    
@@ -120,8 +119,7 @@
                                
                         </div>
                     </div>
-                   
-                    
+
                 </div>
                 <div class="row">
                     <div class="form-group">
