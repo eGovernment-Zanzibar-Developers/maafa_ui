@@ -31,7 +31,7 @@ Route::post('/hazard-source', [HazardConfigController::class, 'addHazardSource']
 //Route for Hazard
 Route::get('/hazard-list', [HazardController::class, 'getHazards']);
 Route::get('/add-hazard', [HazardController::class, 'getResource']);
-//Route::put('/update-hazard', [HazardController::class, 'getResource']);
+Route::get('/update-hazard', [HazardController::class, 'updateHazard']);
 Route::get('/getShehias', [HazardController::class, 'getShehias']);
 Route::get('/update-hazard/{id}', [HazardController::class, 'getHazardUpdateById']);
 Route::post('/add-hazard', [HazardController::class, 'addHazard']);

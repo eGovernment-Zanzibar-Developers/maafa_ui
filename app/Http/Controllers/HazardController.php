@@ -76,7 +76,7 @@ class HazardController extends Controller
                 
             // ]);
         } catch (\Throwable $th) {
-            return '<h1>Mfumo haupatikani utarudi baada mda mchache</h1>';
+            return view('not-found');
         }
     }
 
@@ -187,11 +187,12 @@ class HazardController extends Controller
 
     }
 
-    public function updateHazard(Request $req, $id)
+    public function updateHazard(Request $req)
     {
         try
         {
             $hazard = new hazard();
+            $decryptedId = Crypt::decrypt($req->Id);
 
             $hazard->hazardTypeId = int($req)->Type;
             $hazard->hazardCategoryId = int($req)->category;
@@ -206,9 +207,10 @@ class HazardController extends Controller
             $hazard->reportedDate = $req->reportedDate;
             $hazard->startDate = $req->startDate;
             $hazard->registeredBy = 1;
+            dd($hazard);
 
 
-            Http::post($thus->ServerUrl().'hazard',
+            Http::put($this->ServerUrl().'hazard/'.$decryptedId,
             [
             'hazardTypeId' =>  $hazard->hazardTypeId,
                 'hazardCategoryId' =>  $hazard->hazardCategoryId,
@@ -231,7 +233,7 @@ class HazardController extends Controller
                 'alert-type' => 'success'
             );
             
-            return redirect('update-hazard')->with($notification);
+            return redirect('hazards.hazard-list')->with($notification);
 
 
         } catch (\Throwable $th) 
