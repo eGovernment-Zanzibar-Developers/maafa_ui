@@ -187,12 +187,12 @@ class HazardController extends Controller
 
     }
 
-    public function updateHazard(Request $req)
+    public function updateHazard(Request $req,$id)
     {
         try
         {
             $hazard = new hazard();
-            $decryptedId = Crypt::decrypt($req->Id);
+            $decryptedId = Crypt::decrypt($id);
 
             $hazard->hazardTypeId = int($req)->Type;
             $hazard->hazardCategoryId = int($req)->category;
@@ -207,10 +207,10 @@ class HazardController extends Controller
             $hazard->reportedDate = $req->reportedDate;
             $hazard->startDate = $req->startDate;
             $hazard->registeredBy = 1;
-            dd($hazard);
+            // dd($hazard);
 
 
-            Http::put($this->ServerUrl().'hazard/'.$decryptedId,
+            Http::put($this->ServerUrl().'Hazard/'.$decryptedId,
             [
             'hazardTypeId' =>  $hazard->hazardTypeId,
                 'hazardCategoryId' =>  $hazard->hazardCategoryId,
