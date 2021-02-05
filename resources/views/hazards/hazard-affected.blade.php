@@ -79,7 +79,7 @@
             </div> 
            <div class="row pt-3">
                <div class="col-md-6">
-                <button class="btn btn-flat btn btn-outline-success"><i class="fa fa-plus"></i> Add Affected People</button>
+                <button class="btn btn-flat btn btn-outline-success" data-toggle="modal" data-target="#affPeople"><i class="fa fa-plus"></i> Add Affected People</button>
                  <table id="example2" class="table table-bordered table-striped table-sm mt-3">
                    <thead>
                      <tr>
@@ -108,7 +108,7 @@
                  </table>
                </div>
                <div class="col-md-6">
-                 <button class="btn btn-flat btn btn-outline-success"><i class="fa fa-plus"></i> Add Affected Property</button>
+                 <button class="btn btn-flat btn btn-outline-success" data-toggle="modal" data-target="#affProperty"><i class="fa fa-plus"></i> Add Affected Property</button>
                 <table class="table table-striped table-sm mt-3">
                   <tr>
                     <th>Property Type</th>
@@ -129,5 +129,5 @@
             </div> 
            </div>
     </div>
-    
+  <x-affected/>
 @endsection

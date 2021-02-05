@@ -112,7 +112,7 @@ $.widget.bridge('uibutton', $.ui.button)
       "responsive": true,
     });
   });
-  $('#user,#institute').click(function() {
+  $('#affPeople','#affProperty').click(function() {
       // reset modal if it isn't visible
       if (!($('.modal.in').length)) {
         $('.modal-dialog').css({
@@ -120,7 +120,7 @@ $.widget.bridge('uibutton', $.ui.button)
           left: 0
         });
       }
-      $('#user').modal({
+      $('#affPeople','#affProperty').modal({
         backdrop: false,
         show: true
       });

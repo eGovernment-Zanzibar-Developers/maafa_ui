@@ -32,6 +32,7 @@ class HazardController extends Controller
             $properties = Http::get($this->serverUrl().'AffectedProperty/count/'.$decryptId)->json();
             $affPeoples = Http::get($this->serverUrl().'AffectedPeople/hazard/'.$decryptId)->json();
             $affProperties = Http::get($this->serverUrl().'AffectedProperty/hazard/'.$decryptId)->json();
+           $genders = Http::get($this->serverUrl().'Gender')->json();
     
             return view('hazards.hazard-affected',
             [
@@ -39,7 +40,9 @@ class HazardController extends Controller
                 'peoples' => $peoples,
                 'properties' => $properties,
                 'affPeoples' => $affPeoples,
-                'affProperties' => $affProperties
+                'affProperties' => $affProperties,
+                'genders' => $genders
+
             ]);
         } catch (\Throwable $th) {
             return '<h1>Mfumo haupatikani utarudi baada mda mchache</h1>';
@@ -187,12 +190,12 @@ class HazardController extends Controller
 
     }
 
-    public function updateHazard(Request $req)
+    public function updateHazard(Request $req,$id)
     {
         try
         {
             $hazard = new hazard();
-            $decryptedId = Crypt::decrypt($req->Id);
+            $decryptedId = Crypt::decrypt($id);
 
             $hazard->hazardTypeId = int($req)->Type;
             $hazard->hazardCategoryId = int($req)->category;
@@ -207,10 +210,10 @@ class HazardController extends Controller
             $hazard->reportedDate = $req->reportedDate;
             $hazard->startDate = $req->startDate;
             $hazard->registeredBy = 1;
-            dd($hazard);
+            // dd($hazard);
 
 
-            Http::put($this->ServerUrl().'hazard/'.$decryptedId,
+            Http::put($this->ServerUrl().'Hazard/'.$decryptedId,
             [
             'hazardTypeId' =>  $hazard->hazardTypeId,
                 'hazardCategoryId' =>  $hazard->hazardCategoryId,
